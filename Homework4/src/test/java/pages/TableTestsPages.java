@@ -9,7 +9,7 @@ public class TableTestsPages {
     public TableTestsPages() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(xpath = "(//td[text()='http://www.timconway.com'])[1]")
+    @FindBy(xpath = "(//td[text()='http://www.timconway.com'])[1]") // for first test
     public WebElement table4And5;
 
     @FindBy (xpath = "(//table[@id='table1']/thead/tr/th)[1]")
@@ -27,7 +27,28 @@ public class TableTestsPages {
     @FindBy (xpath = "(//table[@id='table1']/thead/tr/th)[5]")
     public WebElement titleOfFifthTitleOfFirstTable;
 
-    @FindBy (xpath = "(//td[@class='dues'])[3]")
+    @FindBy (xpath = "(//table[@id='table1']/thead/tr/th)[6]")
+    public WebElement titleOfSixthTitleOfFirstTable;
+
+    @FindBy (xpath = "(//table[@id='table2']/thead/tr/th)[1]")
+    public WebElement titleOfFirstTitleOfSecondTable;
+
+    @FindBy (xpath = "(//table[@id='table2']/thead/tr/th)[2]")
+    public WebElement titleOfsecondTitleOfSecondTable;
+
+    @FindBy (xpath = "(//table[@id='table2']/thead/tr/th)[3]")
+    public WebElement titleOfThirdTitleOfSecondTable;
+
+    @FindBy (xpath = "(//table[@id='table2']/thead/tr/th)[4]")
+    public WebElement titleOfFourthTitleOfSecondTable;
+
+    @FindBy (xpath = "(//table[@id='table2']/thead/tr/th)[5]")
+    public WebElement titleOfFifthTitleOfSecondTable;
+
+    @FindBy (xpath = "(//table[@id='table2']/thead/tr/th)[6]")
+    public WebElement titleOfSixthTitleOfSecondTable;
+
+    @FindBy (xpath = "(//td[@class='dues'])[3]") // for third test
     public WebElement valueOfSecondTable;
 
 
