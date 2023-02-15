@@ -52,7 +52,7 @@ public class Homework3 extends TestBase {
         String priceOfProdukt =price.getText();
         System.out.println("priceOfProdukt = " + priceOfProdukt);
 
-        Assert.assertTrue(priceOfProdukt.contains("$16.99"));
+        Assert.assertTrue(priceOfProdukt.contains("$89.99"));
 
 
 }
