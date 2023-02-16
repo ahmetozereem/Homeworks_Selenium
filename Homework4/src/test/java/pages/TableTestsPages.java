@@ -12,6 +12,9 @@ public class TableTestsPages {
     @FindBy(xpath = "(//td[text()='http://www.timconway.com'])[1]") // for first test
     public WebElement table4And5;
 
+    @FindBy (css = "#table1[class='tablesorter'] thead tr th")
+    public WebElement titleOfFirstTitleOfFirstTableList;
+
     @FindBy (xpath = "(//table[@id='table1']/thead/tr/th)[1]")
     public WebElement titleOfFirstTitleOfFirstTable;
 

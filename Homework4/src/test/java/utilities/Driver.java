@@ -12,6 +12,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class Driver {
     public static WebDriver driver; // selenium dependency bunun icin gerekli
 
@@ -73,6 +78,7 @@ public class Driver {
         }
         //driver.manage().window().maximize();
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
 
         return driver;
     }

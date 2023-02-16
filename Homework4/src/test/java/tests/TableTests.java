@@ -19,10 +19,13 @@ public class TableTests extends TestBase {
         String expectedValue = "http://www.timconway.com";
         String actualValue = tableTestsPages.table4And5.getText();
         Assert.assertEquals(actualValue,expectedValue);
+
     }
 
     @Test (priority = -100)
     public void questionTwoTest (){
+
+        /* Birinci klasik yöntem
 
         List<WebElement> listOfWebElementsOfTable1 = new ArrayList<>();
         List<String> listOftitlesOfFirstTable = new ArrayList<>();
@@ -52,7 +55,6 @@ public class TableTests extends TestBase {
         listOfWebElementsOfTable2.add(tableTestsPages.titleOfFifthTitleOfSecondTable);
         listOfWebElementsOfTable2.add(tableTestsPages.titleOfSixthTitleOfSecondTable);
 
-
             for (int i=0;i<6;i++) {
             listOftitlesOfSecondTable.add(listOfWebElementsOfTable2.get(i).getText());
         }
@@ -63,7 +65,25 @@ public class TableTests extends TestBase {
             for (int i=0;i<6;i++) {
             Assert.assertEquals(listOftitlesOfFirstTable.get(i), listOftitlesOfSecondTable.get(i));
         }
+
+         */
+
+        // ikinci yöntem
+
+        List<WebElement> listOfWebElementsOfTable1 = Driver.getDriver().findElements(By.cssSelector("#table1[class=\"tablesorter\"] thead tr th"));
+        List<String> listOftitlesOfFirstTable = new ArrayList<>();
+        List<WebElement> listOfWebElementsOfTable2 = Driver.getDriver().findElements(By.cssSelector("#table2[class=\"tablesorter\"] thead tr th"));
+        List<String> listOftitlesOfSecondTable = new ArrayList<>();
+
+        for (int i=0;i<6;i++) {
+            listOftitlesOfFirstTable.add(listOfWebElementsOfTable1.get(i).getText());
+            listOftitlesOfSecondTable.add(listOfWebElementsOfTable2.get(i).getText());
+            //System.out.println(listOftitlesOfFirstTable.get(i) +"="+listOftitlesOfSecondTable.get(i));
+            Assert.assertEquals(listOftitlesOfFirstTable.get(i), listOftitlesOfSecondTable.get(i));
+        }
+
     }
+
 
     @Test (priority = 0)
     public void questionThreeTest () {
@@ -72,6 +92,7 @@ public class TableTests extends TestBase {
         String actualValue =tableTestsPages.valueOfSecondTable.getText();
         System.out.println("actualValue = " + actualValue);
         Assert.assertEquals(actualValue,expectedValue);
+
 
     }
 
