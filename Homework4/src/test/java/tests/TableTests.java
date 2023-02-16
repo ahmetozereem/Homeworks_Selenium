@@ -87,7 +87,6 @@ public class TableTests extends TestBase {
 
     @Test (priority = 0)
     public void questionThreeTest () {
-
         String expectedValue = "$100.00";
         String actualValue =tableTestsPages.valueOfSecondTable.getText();
         System.out.println("actualValue = " + actualValue);

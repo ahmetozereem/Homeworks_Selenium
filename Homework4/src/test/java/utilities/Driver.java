@@ -77,15 +77,14 @@ public class Driver {
             }
         }
         //driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         return driver;
     }
 
     public static void closeDriver() {
         if(driver!=null){
-            driver.close();
+            driver.quit();
             driver = null;
         }
     }

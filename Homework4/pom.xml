@@ -96,21 +96,6 @@
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium.client-drivers/selenium-java-client-driver -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium.client-drivers</groupId>
-            <artifactId>selenium-java-client-driver</artifactId>
-            <version>1.0.2</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
-        <dependency>
-            <groupId>io.appium</groupId>
-            <artifactId>java-client</artifactId>
-            <version>8.3.0</version>
-        </dependency>
-
-
 
     </dependencies>
 
