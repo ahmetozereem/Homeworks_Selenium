@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import utilities.AllPages;
@@ -54,8 +55,10 @@ public class DragAndDropQuestion1 extends TestBase {
         Assert.assertEquals(allPages.dragAndDropPages.table.getText(), "Perfect!");
     }
 
-    @Test
+    @Test @Ignore
     public void iFrameList () {
+        // !!!!!  Uyarı: Bu Test ödeve dahil değildir
+
         // Sayfadaki iframe ler listeye alınır:
         List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
 
