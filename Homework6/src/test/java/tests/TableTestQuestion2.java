@@ -33,7 +33,9 @@ public class TableTestQuestion2 extends TestBase {
                 doubleList2.add(a);
             }
         }
+
         // ikinci liste ile assertion yapılır
+        // Assert.assertTrue(doubleList2.contains(100.0));
         Double expectedVaue =100.0;
         Double actualValue=0.0;
         for (Double b: doubleList2) {
