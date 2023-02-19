@@ -25,7 +25,7 @@ public class TestBase {
     }
     @AfterClass
     public void tearDown() throws InterruptedException {
-       //Driver.closeDriver();
+       Driver.closeDriver();
 
     }
 }

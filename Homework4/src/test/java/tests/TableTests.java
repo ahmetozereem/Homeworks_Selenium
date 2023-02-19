@@ -26,6 +26,11 @@ public class TableTests extends TestBase {
         List<WebElement> listOfWebElementsOfTable2 = tableTestsPages.table2Elements;
         List<String> listOftitlesOfSecondTable = new ArrayList<>();
 
+        for (WebElement a: listOfWebElementsOfTable2
+             ) {
+            System.out.println(a.toString());
+        }
+
         for (int i=0;i<6;i++) {
             listOftitlesOfFirstTable.add(listOfWebElementsOfTable1.get(i).getText());
             listOftitlesOfSecondTable.add(listOfWebElementsOfTable2.get(i).getText());
@@ -41,3 +46,4 @@ public class TableTests extends TestBase {
         Assert.assertEquals(actualValue,expectedValue);
     }
 }
+

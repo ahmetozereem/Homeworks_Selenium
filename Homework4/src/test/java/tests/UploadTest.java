@@ -1,11 +1,14 @@
 package tests;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.UploadTestPage;
 import utilities.Driver;
 
 public class UploadTest {
+    Actions actions = new Actions(Driver.getDriver());
     UploadTestPage uploadTestPage = new UploadTestPage();
     @Test
     public void uploadTest () {
