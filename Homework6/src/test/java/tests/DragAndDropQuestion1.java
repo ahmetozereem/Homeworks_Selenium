@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
@@ -44,7 +45,6 @@ public class DragAndDropQuestion1 extends TestBase {
         // Aşağıda çıkan Ek Tablo içerisinden 5000 objeleri SoftAssert ile Valide edilir.
 
         SoftAssert softAssert = new SoftAssert();
-
         softAssert.assertTrue(allPages.dragAndDropPages.debitMovementAmount.getText().contains("5000"));
         softAssert.assertTrue(allPages.dragAndDropPages.creditMovementAmount.getText().contains("5000"));
         softAssert.assertAll();
@@ -56,37 +56,49 @@ public class DragAndDropQuestion1 extends TestBase {
     }
 
     @Test @Ignore
-    public void iFrameList () {
+    public void iframeTest() throws InterruptedException {
         // !!!!!  Uyarı: Bu Test ödeve dahil değildir
-
+        Thread.sleep(2000);
         // Sayfadaki iframe ler listeye alınır:
-        List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
-
-        // İçerik sayısı ve iframe sayısı hakkında bilgi yazdırılır:
-        System.out.println("Bu sayfada " + iframes.size() + " adet iframe var.");
-
+        List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
         // Her bir iframe için id veya name özniteliklerini yazdırın
         for (WebElement iframe : iframes) {
             String id = iframe.getAttribute("id");
             String name = iframe.getAttribute("name");
             System.out.println("Iframe id: " + id + ", name: " + name);
         }
-        // Sayfadaki cookies ler listeye alınır
+        System.out.println("------------------------------------------------------");
+        WebElement acceptCookiesButton= null;
+
+        for (WebElement iframe : iframes) {
+            try {
+                Driver.getDriver().switchTo().frame(iframe);
+                System.out.println("iframe e gecti");
+                if(Driver.getDriver().findElement(By.cssSelector("#save span.mat-button-wrapper div.action-wrapper span")).isDisplayed())
+                {
+                    System.out.println("if içinde");
+                    acceptCookiesButton = Driver.getDriver().findElement(By.cssSelector("#save span.mat-button-wrapper div.action-wrapper span"));
+                    acceptCookiesButton.click();
+                    System.out.println("Element üzerine tıklandı");
+                }
+                else {acceptCookiesButton.click();}
+
+             }catch (Exception e){
+                Driver.getDriver().switchTo().defaultContent();
+                System.out.println("Hata!!!!");
+                System.out.println("-------------------------------------------------------");
+            }
+        }
+        /*
 
         Set<Cookie> cookies = Driver.getDriver().manage().getCookies();
         System.out.println("Bu sayfada " + cookies.size() + " adet cookies var.");
 
-        WebElement targetIframe = null;
-        for (WebElement iframe : iframes) {
-            Driver.getDriver().switchTo().frame(iframe);
-            try {
-                WebElement acceptCookiesButton = Driver.getDriver().findElement(By.id("#save"));
-                targetIframe = iframe;
-                break;
-            } catch (NoSuchElementException e) {
-                // "accept-cookies" ID'siyle bir element bulunamazsa, iframe'in çerezleri kabul etmesi gerekmez.
-            }
-            Driver.getDriver().switchTo().defaultContent();
+        for (Cookie c: cookies) {
+            Driver.getDriver().manage().addCookie(c);
         }
+        Driver.getDriver().navigate().refresh();
+
+         */
     }
 }
