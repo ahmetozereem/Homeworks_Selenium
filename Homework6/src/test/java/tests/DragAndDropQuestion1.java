@@ -54,7 +54,6 @@ public class DragAndDropQuestion1 extends TestBase {
         System.out.println("text = " + text);
         Assert.assertEquals(allPages.dragAndDropPages.table.getText(), "Perfect!");
     }
-
     @Test @Ignore
     public void iframeTest() throws InterruptedException {
         // !!!!!  Uyarı: Bu Test ödeve dahil değildir
@@ -90,7 +89,6 @@ public class DragAndDropQuestion1 extends TestBase {
             }
         }
         /*
-
         Set<Cookie> cookies = Driver.getDriver().manage().getCookies();
         System.out.println("Bu sayfada " + cookies.size() + " adet cookies var.");
 
@@ -98,7 +96,6 @@ public class DragAndDropQuestion1 extends TestBase {
             Driver.getDriver().manage().addCookie(c);
         }
         Driver.getDriver().navigate().refresh();
-
          */
     }
 }
