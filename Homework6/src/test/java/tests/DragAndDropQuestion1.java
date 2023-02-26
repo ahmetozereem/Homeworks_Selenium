@@ -23,24 +23,28 @@ public class DragAndDropQuestion1 extends TestBase {
     AllPages allPages = new AllPages();
 
     @Test
-    public void dragAndDropTest() {
+    public void dragAndDropTest() throws InterruptedException {
         Driver.getDriver().switchTo().frame("gdpr-consent-notice");
         allPages.dragAndDropPages.iFrameAcceptAll.click();
         // Kullanıcı BANK objesini Debit Side Sol Account kutusuna taşıyarak yerleştirir.
         actions.dragAndDrop(allPages.dragAndDropPages.bankButton,
                 allPages.dragAndDropPages.placeFolderDebitSideAccount).build().perform();
+        Thread.sleep(2000);
 
         // Kullanıcı SALES objesini Credit Side Sol Account kutusuna taşıyarak yerleştirir
         actions.dragAndDrop(allPages.dragAndDropPages.sales,
                 allPages.dragAndDropPages.placeFoldeCreditSideAccount).build().perform();
+        Thread.sleep(2000);
 
         // Kullanıcı 5000 objesini Debit Side Sağ Amount kutusuna taşıyarak yerleştirir.
         actions.dragAndDrop(allPages.dragAndDropPages.fiveHundertButton,
                 allPages.dragAndDropPages.placeFolderDebitSideAmount).build().perform();
+        Thread.sleep(2000);
 
         // Kullanıcı 5000 objesini Credit Side Sağ Amount kutusuna taşıyarak yerleştirir
         actions.dragAndDrop(allPages.dragAndDropPages.fiveHundertButton,
                 allPages.dragAndDropPages.placeFolderCreditSideAmount).build().perform();
+        Thread.sleep(2000);
 
         // Aşağıda çıkan Ek Tablo içerisinden 5000 objeleri SoftAssert ile Valide edilir.
 
@@ -60,6 +64,7 @@ public class DragAndDropQuestion1 extends TestBase {
         Thread.sleep(2000);
         // Sayfadaki iframe ler listeye alınır:
         List<WebElement> iframes = Driver.getDriver().findElements(By.tagName("iframe"));
+        System.out.println(iframes.size());
         // Her bir iframe için id veya name özniteliklerini yazdırın
         for (WebElement iframe : iframes) {
             String id = iframe.getAttribute("id");
