@@ -22,25 +22,21 @@ public class Question6Steps {
     public void kullaniciIlgiliSayfayaGider() {
         Driver.getDriver().get(ConfigReader.getProperty("url1"));
     }
-
     @When("Kullanici Cookies secenegini Accept All secenegi ile kabul eder")
     public void kullaniciCookiesSeceneginiAcceptAllSecenegiIleKabulEder() {
-        CommenSteps.waitForVisibility(question6Page.acceptAllCookies, 5);
-        question6Page.acceptAllCookies.click();
+        try {
+            CommenSteps.waitForVisibility(question6Page.acceptAllCookies, 5);
+            question6Page.acceptAllCookies.click();
+        }catch (Exception e) { e.printStackTrace();}
     }
-
     @And("Kullanici SearchBox kutusuna computer kelimesini yazar")
     public void kullaniciSearchBoxKutusunaComputerKelimesiniYazar() {
-
         question6Page.searchBox.sendKeys("computer");
     }
-
     @And("Kullanici arama butonuna basar")
     public void kullaniciAramaButonunaBasar() {
         question6Page.searchBox.sendKeys(Keys.ENTER);
-
     }
-
     @And("Kullanici filtre bolmesinden Windows on secenegine tiklar")
     public void kullaniciFiltreBolmesindenWindowsOnSecenegineTiklar() {
         question6Page.windows10.click();

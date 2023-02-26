@@ -14,35 +14,28 @@ import utilities.ReUsableMethods;
 
 public class Question7Steps {
     Question7Page question7Page = new Question7Page();
-    ReUsableMethods reUsableMethods = new ReUsableMethods();
-    CommenSteps commenSteps = new CommenSteps();
     @Given("Kullainci ilgili sayfaya gitmelidir")
     public void kullainciIlgiliSayfayaGitmelidir() {
         Driver.getDriver().get(ConfigReader.getProperty("url2"));
     }
-
     @When("Kullanici Cookies leri kabul etmek icin AcceptAll ve close a tiklar")
     public void kullaniciCookiesLeriKabulEtmekIcinAcceptAllVeCloseATiklar() {
-        question7Page.acceptAndCloseButton.click();
+        try {
+            question7Page.acceptAndCloseButton.click();
+        }catch (Exception e){e.printStackTrace();}
     }
-
     @And("Kullainci  ust menu bardan arama simgesine tiklar")
     public void kullainciUstMenuBardanAramaSimgesineTiklar() {
     question7Page.searchButton.click();
     }
-
     @And("Kullanici  search box kutusuna {string} yazar")
     public void kullaniciSearchBoxKutusunaYazar(String arg0) {
         question7Page.searchArea.sendKeys(arg0);
-
     }
-
     @And("Kullanici arama butonuna tiklar")
     public void kullaniciAramaButonunaTiklar() throws InterruptedException {
     question7Page.searchAreaButton.click();
-
     }
-
     @Then("Arama sonucu cikan ilk secenegin {string} kelimeleri barindirdigi Assert edilir.")
     public void aramaSonucuCikanIlkSeceneginKelimeleriBarindirdigiAssertEdilir(String arg0) {
         CommenSteps.waitForVisibility(question7Page.results, 5);
