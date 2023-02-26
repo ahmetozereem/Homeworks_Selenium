@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-
         plugin ={
                 "pretty", "html:target/cucumber", "json:target/cucumber.json",
                 "html:target/cucumber-reports.html",
@@ -15,14 +14,9 @@ import org.junit.runner.RunWith;
                 "timeline:test-output-thread/",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
-
         features = "src/test/resources",
         glue = "stepdefinitions",
         tags = "@question7", // Keyword Driven Testing
         dryRun = false
-
-
 )
-public class runnerQuestion7 {
-
-}
+public class runnerQuestion7 { }

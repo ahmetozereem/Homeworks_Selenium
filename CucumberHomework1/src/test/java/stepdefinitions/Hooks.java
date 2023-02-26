@@ -9,14 +9,11 @@ import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
 
 public class Hooks {
-
     static int stepCount;
-
     @Before
     public void setup() {
         Driver.getDriver();
     }
-
     @After
     public void teardown(Scenario scenario) {
         // Aşağıdaki kod ile aldığımız SCREENSHOT'lar çok fazla yer kaplar.
