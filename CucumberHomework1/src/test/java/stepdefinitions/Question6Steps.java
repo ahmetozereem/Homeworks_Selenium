@@ -24,6 +24,7 @@ public class Question6Steps {
     }
     @When("Kullanici Cookies secenegini Accept All secenegi ile kabul eder")
     public void kullaniciCookiesSeceneginiAcceptAllSecenegiIleKabulEder() {
+
         try {
             CommenSteps.waitForVisibility(question6Page.acceptAllCookies, 5);
             question6Page.acceptAllCookies.click();
@@ -35,7 +36,9 @@ public class Question6Steps {
     }
     @And("Kullanici arama butonuna basar")
     public void kullaniciAramaButonunaBasar() {
-        question6Page.searchBox.sendKeys(Keys.ENTER);
+        question6Page.searchBoxButton.click();
+        // veya
+        //question6Page.searchBox.sendKeys(Keys.ENTER);
     }
     @And("Kullanici filtre bolmesinden Windows on secenegine tiklar")
     public void kullaniciFiltreBolmesindenWindowsOnSecenegineTiklar() {
