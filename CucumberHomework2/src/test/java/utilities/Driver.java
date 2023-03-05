@@ -81,7 +81,7 @@ public class Driver {
     public static void closeDriver() {
         if(driver!=null){
             driver.quit();
-            driver = null;
+            //driver = null;
         }
     }
     public static void wait(int second) throws InterruptedException {

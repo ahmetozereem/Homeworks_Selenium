@@ -12,8 +12,8 @@ public class Hooks {
     static int stepCount;
     @Before
     public void setup() {
-        Driver.getDriver();
-    }
+        //Driver.getDriver();
+   }
     @After
     public void teardown(Scenario scenario) {
         // Aşağıdaki kod ile aldığımız SCREENSHOT'lar çok fazla yer kaplar.
@@ -31,13 +31,13 @@ public class Hooks {
             picture = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(picture, "image/png", "passed" + scenario.getName());
         }
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 
-    @AfterStep
+    /*@AfterStep
     public void makeSlowRunning() throws InterruptedException {
         //Driver.wait(1);
-        this.stepCount = stepCount + 1;
-        System.out.println((stepCount) + ". STEP");
-    }
+       this.stepCount = stepCount + 1;
+       System.out.println((stepCount) + ". STEP");
+    }*/
 }

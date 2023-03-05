@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources",
         glue = "stepdefinitions",
-        tags = "@homework", // Keyword Driven Testing
+        tags = "@ikinci", // Keyword Driven Testing
         dryRun = false
 )
 public class Runner {

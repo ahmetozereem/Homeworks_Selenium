@@ -16,10 +16,12 @@ public class Homework2Steps {
     public void kullaniciAnaSayfayaGider() {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
     }
+
     @When("Kullanici Cookies ile ilgili onayi kabul eder")
-    public void kullaniciCookiesIleIlgiliOnayiKabulEder() {
+    public void kullaniciCookiesIleIlgiliOnayiKabulEder() throws InterruptedException {
+        //Driver.wait(3);
         try{
-            CommenSteps.waitForClickablility(homework2Page.acceptAllCookies, 10);
+            CommenSteps.waitForClickablility(homework2Page.acceptAllCookies, 15);
             homework2Page.acceptAllCookies.click();
 
         }catch (Exception e) {
