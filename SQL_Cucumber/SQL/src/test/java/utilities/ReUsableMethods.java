@@ -1,9 +1,6 @@
 package utilities;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class ReUsableMethods {
     public static int getMax (ResultSet resultSet, String label) throws SQLException {
@@ -20,7 +17,11 @@ public class ReUsableMethods {
         return maxValue;
     }
 
-    public  static void getAllValueOfTable(Statement statement, String code ) throws SQLException {
+    public  static void getAllValueOfTable( String code ) throws SQLException {
+        Connection connection;
+        Statement statement;
+        connection = DriverManager.getConnection(ConfigReader.getProperty("db_url"), ConfigReader.getProperty("db_username"), ConfigReader.getProperty("db_password"));
+        statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet resultSet = statement.executeQuery(code);
         // Başlıkları yazdır
         ResultSetMetaData rsmd = resultSet.getMetaData();
