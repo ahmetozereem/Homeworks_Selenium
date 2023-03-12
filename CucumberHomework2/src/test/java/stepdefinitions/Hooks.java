@@ -33,7 +33,6 @@ public class Hooks {
         }
         Driver.closeDriver();
     }
-
     /*@AfterStep
     public void makeSlowRunning() throws InterruptedException {
         //Driver.wait(1);

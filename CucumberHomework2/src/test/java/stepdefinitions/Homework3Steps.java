@@ -26,7 +26,6 @@ public class Homework3Steps {
     public void kullaniciWebSayfasinaGider(String url) {
         Driver.getDriver().get(url);
     }
-
     @When("kullanici cookiesi kabul eder")
     public void kullaniciCookiesiKabulEder() throws InterruptedException {
        Driver.wait(3);
@@ -38,17 +37,14 @@ public class Homework3Steps {
             e.printStackTrace();
         }
     }
-
     @And("kullanici Pricing linkine tiklar")
     public void kullaniciPricingLinkineTiklar() {
         homework3Page.pricingButton.click();
     }
-
     @And("kullanici BuyNow butonu ile sepete bir urun ekler")
     public void kullaniciBuyNowButonuIleSepeteBirUrunEkler() {
         homework3Page.buyNowButton.click();
     }
-
     @And("kullanici Pricing sayfasina geri doner")
     public void kullaniciPricingSayfasinaGeriDoner() {
         try{
@@ -59,15 +55,12 @@ public class Homework3Steps {
             e.printStackTrace();
         }
         homework3Page.goToHomepage.click();
-
     }
     @And("kullanici Buynow butonu ile bir urun daha ekler")
     public void kullaniciBuynowButonuIleBirUrunDahaEkler() {
         homework3Page.pricingButton.click();
         homework3Page.buyNowButton1.click();
-
     }
-
     @And("kullanici ana sayfaya geri doner")
     public void kullaniciAnaSayfayaGeriDoner() {
         try {
@@ -75,25 +68,19 @@ public class Homework3Steps {
         }catch (Exception e) {e.printStackTrace();}
         homework3Page.goToHomepage.click();
     }
-
-
-
     @And("kullanici sepete uzerindeki mevcut sayiyi alir")
     public void kullaniciSepeteUzerindekiMevcutSayiyiAlir() {
         firstNummerOfOrder = homework3Page.verifyOfNummerOfItems.getText();
         System.out.println("firstNummerOfOrder = " + firstNummerOfOrder);
     }
-
     @And("kullanici sepete tekrar gider")
     public void kullaniciSepeteTekrarGider() {
         Driver.getDriver().navigate().to("https://store.progress.com/your-order");
     }
-
     @And("kullanici sepetteki urunlerden bir tanesini Delete linki ile siler")
     public void kullaniciSepettekiUrunlerdenBirTanesiniDeleteLinkiIleSiler() {
         homework3Page.deleteItem.click();
     }
-
     @Then("kullanici sepet simgesi uzerindeki sayinin bir eksildigini kontrol eder")
     public void kullaniciSepetSimgesiUzerindekiSayininBirEksildiginiKontrolEder() {
         homework3Page.goToHomepage.click();
