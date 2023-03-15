@@ -32,7 +32,7 @@ public class ReUsableMethods {
         return maxValue;
     }
 
-    public  static void getAllValueOfTable( String code ) throws SQLException {
+    public  static void getAllValuesOfTable(String code ) throws SQLException {
         getConnectionToDataBase();
         ResultSet resultSet = statement.executeQuery(code);
         // Başlıkları yazdır

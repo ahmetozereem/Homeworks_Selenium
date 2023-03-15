@@ -68,30 +68,30 @@ public class DataBaseSteps {
     @And("write all of the table Urun")
     public void writeAllOfTheTableUrun() throws SQLException {
         String code = "SELECT id as Numara, name as Isim, price as Fiyat  FROM Urun ";
-        ReUsableMethods.getAllValueOfTable( code);
+        ReUsableMethods.getAllValuesOfTable( code);
     }
 
     @And("write all of the name big")
     public void writeAllOfTheNameBig() throws SQLException {
         String code = "SELECT id, UPPER(name) as name, price FROM Urun ";
-        ReUsableMethods.getAllValueOfTable( code);
+        ReUsableMethods.getAllValuesOfTable( code);
     }
 
     @And("write all of the name small")
     public void writeAllOfTheNameSmall() throws SQLException {
         String code = "SELECT id, LOWER(name) as name, price  FROM Urun ";
-        ReUsableMethods.getAllValueOfTable( code);
+        ReUsableMethods.getAllValuesOfTable( code);
     }
 
     @And("write all of the name only first letter big")
     public void writeAllOfTheNameOnlyFirstLetterBig() throws SQLException {
         String code = "SELECT id, INITCAP(name) as name, price  FROM Urun ";
-        ReUsableMethods.getAllValueOfTable( code);
+        ReUsableMethods.getAllValuesOfTable( code);
     }
 
     @And("write some values")
     public void writeSomeValues() throws SQLException {
         String code = "select * from Urun where price>3 order by 1 ASC, 3 Desc ";
-        ReUsableMethods.getAllValueOfTable( code);
+        ReUsableMethods.getAllValuesOfTable( code);
     }
 }

@@ -12,3 +12,5 @@ Feature: odev 3
     And Tablodaki ikinci maksimum maasi bulur
     And Tablodaki maksimum maasa sahip satirin tüm bilgilerini getirir
     And Tablodaki ikinci maksimum maasa sahip satirin tüm bilgilerini getirir
+    And Kullanici tabloyu siler
+    And Kullanici database baglantisini kapatir

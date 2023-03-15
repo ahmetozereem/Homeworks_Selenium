@@ -36,7 +36,7 @@ public class Homework3Steps {
     @And("ID numarasinin sonu cift sayi olan satirlarin bilgelerini tablo olarak getirir")
     public void ıdNumarasininSonuCiftSayiOlanSatirlarinBilgeleriniTabloOlarakGetirir() throws SQLException {
         String code ="select * from employees where mod(id,2)=0";
-        ReUsableMethods.getAllValueOfTable(code);
+        ReUsableMethods.getAllValuesOfTable(code);
     }
 
     @And("Tablodaki toplam satir sayisini bulur")
@@ -58,18 +58,32 @@ public class Homework3Steps {
     @And("Tablodaki ikinci maksimum maasi bulur")
     public void tablodakiIkinciMaksimumMaasiBulur() throws SQLException {
         String code ="select max(salary) from employees where salary!=(select max(salary) from employees)";
-        ReUsableMethods.getAllValueOfTable(code);
+        ReUsableMethods.getAllValuesOfTable(code);
     }
 
     @And("Tablodaki maksimum maasa sahip satirin tüm bilgilerini getirir")
     public void tablodakiMaksimumMaasaSahipSatirinTümBilgileriniGetirir() throws SQLException {
         String code ="select * from employees where salary=(select max(salary) from employees)";
-        ReUsableMethods.getAllValueOfTable(code);
+        ReUsableMethods.getAllValuesOfTable(code);
     }
 
     @And("Tablodaki ikinci maksimum maasa sahip satirin tüm bilgilerini getirir")
     public void tablodakiIkinciMaksimumMaasaSahipSatirinTümBilgileriniGetirir() throws SQLException {
         String code ="select * from employees where salary=(select max(salary) from employees where salary!=(select max(salary) from employees))";
-        ReUsableMethods.getAllValueOfTable(code);
+        ReUsableMethods.getAllValuesOfTable(code);
+    }
+
+    @And("Kullanici tabloyu siler")
+    public void kullaniciTabloyuSiler() {
+        String code = "drop table employees";
+        try {
+            statement.executeUpdate(code);
+        }catch (SQLException e) {
+            System.out.println("Veritabanı hatası: " + e.getMessage());}
+    }
+
+    @And("Kullanici database baglantisini kapatir")
+    public void kullaniciDatabaseBaglantisiniKapatir() throws SQLException {
+        connection.close();
     }
 }
