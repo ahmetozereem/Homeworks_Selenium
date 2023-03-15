@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources",
         glue = "stepdefinitions",
-        tags = "@dbQuery",
+        tags = "@homework3",
         dryRun = false
 )
 public class DataBaseRunner {}

@@ -40,14 +40,14 @@ public class DataBaseSteps {
 
     @Then("print the most expensive product and verify")
     public void printTheMostExpensiveProductAndVerify() throws SQLException {
-        int actualMaxPrice=ReUsableMethods.getMax(resultSet,"price");
+        int actualMaxPrice=ReUsableMethods.getMax("price","Urun");
         int expectedMaxPrice =8;
         Assert.assertEquals(actualMaxPrice,expectedMaxPrice);
     }
 
     @And("change the product name in the first row")
     public void changeTheProductNameInTheFirstRow() throws SQLException {
-        String sql = "UPDATE Urun SET name='Madensuyu' WHERE id=1";
+        String sql = "UPDATE Urun SET name='Kahve' WHERE id=1";
         statement.executeUpdate(sql);
 
         resultSet = statement.executeQuery("SELECT * FROM Urun");
