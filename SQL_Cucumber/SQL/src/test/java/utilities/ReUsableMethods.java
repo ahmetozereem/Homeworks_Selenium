@@ -3,12 +3,18 @@ package utilities;
 import java.sql.*;
 
 public class ReUsableMethods {
-    public static int getMax (String label,String tableName) throws SQLException {
-        Connection connection;
-        Statement statement;
-        ResultSet resultSet;
+    public static Connection connection;
+    public static Statement statement;
+    public static ResultSet resultSet;
+
+    public static void getConnectionToDataBase () throws SQLException {
         connection = DriverManager.getConnection(ConfigReader.getProperty("db_url"), ConfigReader.getProperty("db_username"), ConfigReader.getProperty("db_password"));
         statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+    }
+
+    public static int getMax (String label,String tableName) throws SQLException {
+
+        getConnectionToDataBase();
         String code ="select * from "+tableName+"";
         resultSet = statement.executeQuery(code);
 
@@ -27,10 +33,7 @@ public class ReUsableMethods {
     }
 
     public  static void getAllValueOfTable( String code ) throws SQLException {
-        Connection connection;
-        Statement statement;
-        connection = DriverManager.getConnection(ConfigReader.getProperty("db_url"), ConfigReader.getProperty("db_username"), ConfigReader.getProperty("db_password"));
-        statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        getConnectionToDataBase();
         ResultSet resultSet = statement.executeQuery(code);
         // Başlıkları yazdır
         ResultSetMetaData rsmd = resultSet.getMetaData();
@@ -50,19 +53,14 @@ public class ReUsableMethods {
     }
 
     public static void addValuetoTable (String code) throws SQLException {
-        Connection connection;
-        Statement statement;
-        connection = DriverManager.getConnection(ConfigReader.getProperty("db_url"), ConfigReader.getProperty("db_username"), ConfigReader.getProperty("db_password"));
-        statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+        getConnectionToDataBase();
         statement.executeUpdate(code);
     }
 
     public static int countAllRow (String tableName) throws SQLException {
-        Connection connection;
-        Statement statement;
-        ResultSet resultSet;
-        connection = DriverManager.getConnection(ConfigReader.getProperty("db_url"), ConfigReader.getProperty("db_username"), ConfigReader.getProperty("db_password"));
-        statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+        getConnectionToDataBase();
         String code ="select * from "+tableName+"";
         resultSet = statement.executeQuery(code);
         int rowCount = 0;
